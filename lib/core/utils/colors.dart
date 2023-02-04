@@ -10,7 +10,7 @@ class VColor {
   static const Color scaffoldBg = Color(0xfff6f8fa);
   static const Color textFieldGrey = Color(0xfff3f3f6);
   static const Color red = Color.fromARGB(255, 255, 91, 79);
-  static const Color primaryButton = Colors.blue;
+  static const Color primaryButton = Color(0xff37325F);
   static const Color secondaryButton = Color(0xff0a2342);
   static const Color searchText = Color(0xff50566A);
   static const Color white = Colors.white;
