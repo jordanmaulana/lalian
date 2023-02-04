@@ -21,7 +21,7 @@ class VColor {
   static const Color hint = Color(0x55252525);
 
   // custom color
-  static const Color orange = Colors.orange;
+  static const Color header = Color(0xffF8D8D2);
 
   static LinearGradient cardShadow() {
     return const LinearGradient(
