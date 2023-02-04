@@ -5,6 +5,12 @@ class SettingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Column(
+        children: [
+          Image.asset('assets/images/setting_header.png'),
+        ],
+      ),
+    );
   }
 }

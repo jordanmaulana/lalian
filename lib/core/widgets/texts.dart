@@ -45,7 +45,7 @@ class VText extends StatelessWidget {
                   ? VUtils.parsePriceValue(int.parse(title ?? '0'))
                   : title!
           : '',
-      style: GoogleFonts.poppins(
+      style: GoogleFonts.hind(
         color: color,
         fontSize: fontSize,
         fontWeight: fontWeight,
