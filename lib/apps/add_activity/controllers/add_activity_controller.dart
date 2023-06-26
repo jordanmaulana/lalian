@@ -29,5 +29,6 @@ class AddActivityController extends BaseController {
       await isar.activitys.put(
           Activity(name: nameField.text, icon: icon.value)); // insert & update
     });
+    Get.back();
   }
 }

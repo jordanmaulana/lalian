@@ -16,27 +16,28 @@ class AddActivity extends StatelessWidget {
         children: [
           Container(
             width: double.infinity,
-            height: 240.0,
             color: VColor.header,
-            child: const Column(
+            padding: const EdgeInsets.only(bottom: 16.0),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TransparentAppBar(),
+                const TransparentAppBar(),
                 Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      VText(
+                      const VText(
                         'Tambah Aktivitas',
                         fontSize: 25.0,
                         fontWeight: FontWeight.w600,
                       ),
-                      VText('Nama'),
+                      const VText('Nama'),
                       VFormInput(
                         hint: 'Olah Raga',
                         textCapitalization: TextCapitalization.words,
                         maxLines: 1,
+                        controller: controller.nameField,
                       ),
                     ],
                   ),
@@ -92,7 +93,7 @@ class AddActivity extends StatelessWidget {
                       Expanded(
                         child: PrimaryButton(
                           label: 'Simpan',
-                          onTap: () {},
+                          onTap: () => controller.submit(),
                         ),
                       ),
                     ],

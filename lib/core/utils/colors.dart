@@ -32,6 +32,6 @@ class VColor {
   }
 
   static colorFilterFromColor(Color color) {
-    return ColorFilter.mode(color, BlendMode.dstIn);
+    return ColorFilter.mode(color, BlendMode.srcIn);
   }
 }

@@ -16,6 +16,7 @@ class BaseController extends GetxController {
       [ActivitySchema],
       directory: dir.path,
     );
+    Get.log('isar base oninit');
     super.onInit();
   }
 }
