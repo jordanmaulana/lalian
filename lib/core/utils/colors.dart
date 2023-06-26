@@ -30,4 +30,8 @@ class VColor {
       colors: [Colors.black54, Colors.transparent, Colors.transparent],
     );
   }
+
+  static colorFilterFromColor(Color color) {
+    return ColorFilter.mode(color, BlendMode.dstIn);
+  }
 }

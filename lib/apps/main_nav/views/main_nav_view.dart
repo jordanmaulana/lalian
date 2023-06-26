@@ -39,27 +39,30 @@ class MainNavView extends StatelessWidget {
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/main_nav/activity.svg',
-                color: controller.index.value == 0
-                    ? VColor.dark
-                    : VColor.bottomGrey,
+                colorFilter: VColor.colorFilterFromColor(
+                    controller.index.value == 0
+                        ? VColor.dark
+                        : VColor.bottomGrey),
               ),
               label: 'Aktifitas',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/main_nav/reminder.svg',
-                color: controller.index.value == 1
-                    ? VColor.dark
-                    : VColor.bottomGrey,
+                colorFilter: VColor.colorFilterFromColor(
+                    controller.index.value == 1
+                        ? VColor.dark
+                        : VColor.bottomGrey),
               ),
               label: 'Pengingat',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
                 'assets/main_nav/setting.svg',
-                color: controller.index.value == 2
-                    ? VColor.dark
-                    : VColor.bottomGrey,
+                colorFilter: VColor.colorFilterFromColor(
+                    controller.index.value == 2
+                        ? VColor.dark
+                        : VColor.bottomGrey),
               ),
               label: 'Pengaturan',
             ),

@@ -52,36 +52,31 @@ class VFormInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextFormField(
-          autofillHints: autoFill,
-          maxLength: maxLength,
-          autofocus: autoFocus,
-          onTap: onTap,
-          style: GoogleFonts.hind(fontSize: 20.0),
-          enabled: enabled,
-          controller: controller,
-          obscureText: obscure,
-          validator: validator,
-          onSaved: onSaved,
-          onChanged: onChanged,
-          maxLines: obscure ? 1 : maxLines,
-          keyboardType: keyboardType,
-          textCapitalization: textCapitalization,
-          onFieldSubmitted: onSubmit,
-          decoration: InputDecoration(
-            label: VText(label),
-            suffixIcon: suffixIcon,
-            hintText: hint,
-            fillColor: fillColor,
-            filled: fillColor != null,
-            focusColor: VColor.primaryButton,
-            hintStyle: GoogleFonts.hind(fontSize: 20.0),
-          ),
-        ),
-      ],
+    return TextFormField(
+      autofillHints: autoFill,
+      maxLength: maxLength,
+      autofocus: autoFocus,
+      onTap: onTap,
+      style: GoogleFonts.hind(fontSize: 20.0),
+      enabled: enabled,
+      controller: controller,
+      obscureText: obscure,
+      validator: validator,
+      onSaved: onSaved,
+      onChanged: onChanged,
+      maxLines: obscure ? 1 : maxLines,
+      keyboardType: keyboardType,
+      textCapitalization: textCapitalization,
+      onFieldSubmitted: onSubmit,
+      decoration: InputDecoration(
+        label: VText(label),
+        suffixIcon: suffixIcon,
+        hintText: hint,
+        fillColor: fillColor,
+        filled: fillColor != null,
+        focusColor: VColor.primaryButton,
+        hintStyle: GoogleFonts.hind(fontSize: 20.0),
+      ),
     );
   }
 }

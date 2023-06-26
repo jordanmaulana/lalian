@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lalian/apps/main_nav/views/main_nav_view.dart';
-import 'package:lalian/apps/setting/views/add_master_view.dart';
+import 'package:lalian/apps/add_activity/views/add_activity_view.dart';
 
 import 'routes.dart';
 
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         ),
         GetPage(
           name: Routes.addMaster,
-          page: () => const AddMasterView(),
+          page: () => const AddActivity(),
         ),
       ],
     );

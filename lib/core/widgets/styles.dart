@@ -3,11 +3,15 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
 class VStyle {
-  static BoxDecoration boxShadow({color = VColor.white, radius = 8.0}) {
+  static BoxDecoration boxShadow({
+    Color color = VColor.white,
+    double radius = 8.0,
+    Color? shadowColor,
+  }) {
     return BoxDecoration(
       color: color,
       borderRadius: BorderRadius.circular(radius),
-      boxShadow: shadow(),
+      boxShadow: shadow(color: shadowColor),
     );
   }
 
@@ -21,8 +25,8 @@ class VStyle {
     );
   }
 
-  static shadow() {
-    return const [BoxShadow(blurRadius: 8.0, color: Colors.black12)];
+  static shadow({Color? color}) {
+    return [BoxShadow(blurRadius: 8.0, color: color ?? Colors.black12)];
   }
 
   static BoxDecoration corner({radius = 12.0, color}) {
