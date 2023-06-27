@@ -14,7 +14,7 @@ class VColor {
   static const Color secondaryButton = Color(0xff0a2342);
   static const Color searchText = Color(0xff50566A);
   static const Color white = Colors.white;
-  static const Color grey = Color(0xfff2f2f2);
+  static const Color grey = Color(0xffFAFAFA);
   static const Color dark = Color(0xff252525);
   static const Color border = Color(0xffE0E0E0);
   static const Color bottomGrey = Color(0xffD1D1D6);

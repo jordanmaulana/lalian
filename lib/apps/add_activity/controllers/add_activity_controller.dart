@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:lalian/base/base_controller.dart';
+import 'package:lalian/db/controllers/base_controller.dart';
 import 'package:lalian/core/widgets/popup.dart';
-import 'package:lalian/db/models/activity.dart';
+import 'package:lalian/db/models/activity/activity.dart';
 
 import '../../../export_controller.dart';
 
-class AddActivityController extends BaseController {
+class AddActivityController extends GetxController {
+  final BaseController _baseController = Get.find();
   RxString icon = ''.obs;
   setIcon(String data) => icon(data);
 
@@ -25,8 +26,8 @@ class AddActivityController extends BaseController {
       return;
     }
 
-    await isar.writeTxn(() async {
-      await isar.activitys.put(
+    await _baseController.isar.writeTxn(() async {
+      await _baseController.isar.activitys.put(
           Activity(name: nameField.text, icon: icon.value)); // insert & update
     });
     Get.back();

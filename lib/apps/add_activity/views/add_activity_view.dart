@@ -1,6 +1,6 @@
 import 'package:lalian/apps/add_activity/controllers/add_activity_controller.dart';
+import 'package:lalian/core/utils/v_constants.dart';
 import 'package:lalian/widgets/appbars.dart';
-import 'package:lalian/widgets/icons.dart';
 
 import '../../../export_view.dart';
 
@@ -32,8 +32,8 @@ class AddActivity extends StatelessWidget {
                         fontSize: 25.0,
                         fontWeight: FontWeight.w600,
                       ),
-                      const VText('Nama'),
                       VFormInput(
+                        label: 'Nama Aktivitas',
                         hint: 'Olah Raga',
                         textCapitalization: TextCapitalization.words,
                         maxLines: 1,
@@ -54,6 +54,7 @@ class AddActivity extends StatelessWidget {
                   const VText('Pilih icon'),
                   Expanded(
                     child: GridView.builder(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
                       gridDelegate:
                           const SliverGridDelegateWithFixedCrossAxisCount(
                         childAspectRatio: 1.0,
@@ -61,20 +62,22 @@ class AddActivity extends StatelessWidget {
                         mainAxisSpacing: 20,
                         crossAxisCount: 4,
                       ),
-                      itemCount: lalianIcons.length,
+                      itemCount: VConst.lalianIcons.length,
                       itemBuilder: (BuildContext ctx, index) {
                         return InkWell(
-                          onTap: () => controller.setIcon(lalianIcons[index]),
+                          onTap: () =>
+                              controller.setIcon(VConst.lalianIcons[index]),
                           child: Obx(
                             () => Container(
                               decoration: VStyle.boxShadow(
-                                shadowColor:
-                                    controller.icon.value == lalianIcons[index]
-                                        ? VColor.red
-                                        : null,
+                                shadowColor: controller.icon.value ==
+                                        VConst.lalianIcons[index]
+                                    ? VColor.red
+                                    : null,
                               ),
                               padding: const EdgeInsets.all(24.0),
-                              child: SvgPicture.asset(lalianIcons[index]),
+                              child:
+                                  SvgPicture.asset(VConst.lalianIcons[index]),
                             ),
                           ),
                         );
