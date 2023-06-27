@@ -34,7 +34,7 @@ class VButton extends StatelessWidget {
         height: height ?? 49.0,
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(25)),
+          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
           border: Border.all(color: enabled ? outlineColor : boxColor),
           color: enabled ? boxColor : VColor.searchText,
         ),
@@ -49,13 +49,13 @@ class VButton extends StatelessWidget {
   }
 }
 
-class GreenButton extends StatelessWidget {
+class PrimaryButton extends StatelessWidget {
   final String label;
   final Function() onTap;
   final bool enabled;
   final double? width;
 
-  const GreenButton({
+  const PrimaryButton({
     Key? key,
     required this.label,
     required this.onTap,
@@ -69,6 +69,36 @@ class GreenButton extends StatelessWidget {
       label,
       width: width,
       boxColor: enabled ? VColor.primaryButton : VColor.searchText,
+      outlineColor: enabled ? VColor.primaryButton : VColor.searchText,
+      onTap: () {
+        if (enabled) onTap();
+      },
+      enabled: enabled,
+    );
+  }
+}
+
+class SecondaryButton extends StatelessWidget {
+  final String label;
+  final Function() onTap;
+  final bool enabled;
+  final double? width;
+
+  const SecondaryButton({
+    super.key,
+    required this.label,
+    required this.onTap,
+    this.enabled = true,
+    this.width,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return VButton(
+      label,
+      width: width,
+      textColor: VColor.primaryButton,
+      boxColor: enabled ? VColor.white : VColor.searchText,
       outlineColor: enabled ? VColor.primaryButton : VColor.searchText,
       onTap: () {
         if (enabled) onTap();

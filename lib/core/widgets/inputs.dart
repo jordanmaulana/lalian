@@ -34,7 +34,7 @@ class VFormInput extends StatelessWidget {
     this.suffixIcon,
     this.validator,
     this.onSaved,
-    this.fillColor = VColor.white,
+    this.fillColor,
     this.controller,
     this.enabled = true,
     this.onChanged,
@@ -52,53 +52,31 @@ class VFormInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        TextFormField(
-          autofillHints: autoFill,
-          maxLength: maxLength,
-          autofocus: autoFocus,
-          onTap: onTap,
-          style: GoogleFonts.openSans(),
-          enabled: enabled,
-          controller: controller,
-          obscureText: obscure,
-          validator: validator,
-          onSaved: onSaved,
-          onChanged: onChanged,
-          maxLines: obscure ? 1 : maxLines,
-          keyboardType: keyboardType,
-          textCapitalization: textCapitalization,
-          onFieldSubmitted: onSubmit,
-          decoration: InputDecoration(
-            label: VText(label),
-            suffixIcon: suffixIcon,
-            hintText: hint,
-            fillColor: fillColor,
-            filled: fillColor != null,
-            hintStyle: GoogleFonts.openSans(),
-            focusedBorder: _border(color: VColor.primaryButton, radius: radius),
-            enabledBorder:
-                _border(color: borderColor ?? VColor.border, radius: radius),
-            errorBorder: _border(color: Colors.red, radius: radius),
-            disabledBorder: _border(color: VColor.border, radius: radius),
-            focusedErrorBorder:
-                _border(color: VColor.primaryButton, radius: radius),
-            counterStyle: GoogleFonts.inter(
-              color: VColor.hint,
-              fontSize: 14.0,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  _border({required Color color, required double radius}) {
-    return OutlineInputBorder(
-      borderSide: BorderSide(color: color),
-      borderRadius: BorderRadius.all(Radius.circular(radius)),
+    return TextFormField(
+      autofillHints: autoFill,
+      maxLength: maxLength,
+      autofocus: autoFocus,
+      onTap: onTap,
+      style: GoogleFonts.hind(fontSize: 20.0),
+      enabled: enabled,
+      controller: controller,
+      obscureText: obscure,
+      validator: validator,
+      onSaved: onSaved,
+      onChanged: onChanged,
+      maxLines: obscure ? 1 : maxLines,
+      keyboardType: keyboardType,
+      textCapitalization: textCapitalization,
+      onFieldSubmitted: onSubmit,
+      decoration: InputDecoration(
+        label: VText(label),
+        suffixIcon: suffixIcon,
+        hintText: hint,
+        fillColor: fillColor,
+        filled: fillColor != null,
+        focusColor: VColor.primaryButton,
+        hintStyle: GoogleFonts.hind(fontSize: 20.0),
+      ),
     );
   }
 }
