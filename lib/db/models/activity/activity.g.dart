@@ -54,7 +54,15 @@ const ActivitySchema = CollectionSchema(
       ],
     )
   },
-  links: {},
+  links: {
+    r'logs': LinkSchema(
+      id: 4007622856163718327,
+      name: r'logs',
+      target: r'ActivityLog',
+      single: false,
+      linkName: r'activity',
+    )
+  },
   embeddedSchemas: {},
   getId: _activityGetId,
   getLinks: _activityGetLinks,
@@ -144,11 +152,12 @@ Id _activityGetId(Activity object) {
 }
 
 List<IsarLinkBase<dynamic>> _activityGetLinks(Activity object) {
-  return [];
+  return [object.logs];
 }
 
 void _activityAttach(IsarCollection<dynamic> col, Id id, Activity object) {
   object.id = id;
+  object.logs.attach(col, col.isar.collection<ActivityLog>(), r'logs', id);
 }
 
 extension ActivityQueryWhereSort on QueryBuilder<Activity, Activity, QWhere> {
@@ -794,7 +803,63 @@ extension ActivityQueryObject
     on QueryBuilder<Activity, Activity, QFilterCondition> {}
 
 extension ActivityQueryLinks
-    on QueryBuilder<Activity, Activity, QFilterCondition> {}
+    on QueryBuilder<Activity, Activity, QFilterCondition> {
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logs(
+      FilterQuery<ActivityLog> q) {
+    return QueryBuilder.apply(this, (query) {
+      return query.link(q, r'logs');
+    });
+  }
+
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logsLengthEqualTo(
+      int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'logs', length, true, length, true);
+    });
+  }
+
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'logs', 0, true, 0, true);
+    });
+  }
+
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'logs', 0, false, 999999, true);
+    });
+  }
+
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'logs', 0, true, length, include);
+    });
+  }
+
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'logs', length, include, 999999, true);
+    });
+  }
+
+  QueryBuilder<Activity, Activity, QAfterFilterCondition> logsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(
+          r'logs', lower, includeLower, upper, includeUpper);
+    });
+  }
+}
 
 extension ActivityQuerySortBy on QueryBuilder<Activity, Activity, QSortBy> {
   QueryBuilder<Activity, Activity, QAfterSortBy> sortByIcon() {

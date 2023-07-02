@@ -1,4 +1,5 @@
 import 'package:isar/isar.dart';
+import 'package:lalian/db/models/activity_log/activity_log.dart';
 
 part 'activity.g.dart';
 
@@ -13,6 +14,9 @@ class Activity {
 
   @enumerated
   IconSource iconSource = IconSource.asset;
+
+  @Backlink(to: 'activity')
+  final logs = IsarLinks<ActivityLog>();
 
   Activity({
     required this.name,

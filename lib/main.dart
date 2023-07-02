@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lalian/apps/activity_history/views/activity_history_view.dart';
 import 'package:lalian/apps/main_nav/views/main_nav_view.dart';
 import 'package:lalian/apps/add_activity/views/add_activity_view.dart';
 import 'package:lalian/db/controllers/base_controller.dart';
@@ -40,6 +41,10 @@ class MyApp extends StatelessWidget {
           GetPage(
             name: Routes.addMaster,
             page: () => const AddActivity(),
+          ),
+          GetPage(
+            name: Routes.activityHistory,
+            page: () => const ActivityHistoryView(),
           ),
         ],
       ),

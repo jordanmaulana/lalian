@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:lalian/core/widgets/texts.dart';
+import 'package:lalian/apps/activity/views/activity_time.dart';
 import 'package:lalian/db/controllers/activity_watcher.dart';
 import 'package:lalian/db/models/activity/activity.dart';
 import 'package:lalian/export_view.dart';
@@ -41,7 +40,9 @@ class ActivityView extends StatelessWidget {
                   itemBuilder: (BuildContext ctx, index) {
                     Activity data = controller.data[index];
                     return InkWell(
-                      onTap: () {},
+                      onDoubleTap: () {
+                        controller.addLog(data);
+                      },
                       child: Container(
                         decoration: VStyle.boxShadow(),
                         padding: const EdgeInsets.all(16.0),
@@ -57,7 +58,12 @@ class ActivityView extends StatelessWidget {
                               ),
                             ),
                             VText(data.name),
-                            VText('-'),
+                            GetBuilder(
+                              id: '${data.id}',
+                              builder: (ActivityWatcher controller) {
+                                return ActivityTime(data.logs);
+                              },
+                            ),
                           ],
                         ),
                       ),
