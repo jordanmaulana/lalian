@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:isar/isar.dart';
 import 'package:lalian/db/models/activity/activity.dart';
+import 'package:lalian/db/models/activity_log/activity_log.dart';
 import 'package:lalian/export_controller.dart';
 
 import 'base_controller.dart';
@@ -31,6 +32,17 @@ class ActivityWatcher extends GetxController {
     await isar.writeTxn(() async {
       await isar.activitys.delete(data.id);
     });
+  }
+
+  addLog(Activity data) async {
+    ActivityLog log = ActivityLog(date: DateTime.now());
+    log.activity.value = data;
+    await isar.writeTxn(() async {
+      await isar.activityLogs.put(log);
+      await log.activity.save();
+    });
+    await log.activity.load();
+    update(['${data.id}']);
   }
 
   @override

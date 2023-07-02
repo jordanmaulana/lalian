@@ -41,9 +41,9 @@ class VUtils {
         data.month == now.month &&
         data.day == now.day &&
         useToday) {
-      time = 'Hari ini';
+      time = 'Hari ini ${dateToString(data, 'HH:mm')}';
     } else {
-      time = dateToString(data, 'd MMM yyyy');
+      time = dateToString(data, 'd MMMM yyyy HH:mm');
     }
     return time;
   }

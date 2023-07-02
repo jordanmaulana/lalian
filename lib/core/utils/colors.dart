@@ -15,10 +15,10 @@ class VColor {
   static const Color searchText = Color(0xff50566A);
   static const Color white = Colors.white;
   static const Color grey = Color(0xffFAFAFA);
-  static const Color dark = Color(0xff252525);
+  static const Color dark = Color(0xff4F4F4F);
   static const Color border = Color(0xffE0E0E0);
   static const Color bottomGrey = Color(0xffD1D1D6);
-  static const Color hint = Color(0x55252525);
+  static const Color hint = Color.fromARGB(255, 165, 159, 159);
 
   // custom color
   static const Color header = Color(0xffF8D8D2);
