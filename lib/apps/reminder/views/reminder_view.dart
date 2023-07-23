@@ -1,7 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:lalian/routes.dart';
 
-import '../../../core/utils/colors.dart';
-import '../../../core/widgets/texts.dart';
+import '../../../export_view.dart';
 
 class ReminderView extends StatelessWidget {
   const ReminderView({super.key});
@@ -10,7 +9,9 @@ class ReminderView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Get.toNamed(Routes.addReminder);
+        },
         backgroundColor: VColor.primaryButton,
         child: const Icon(Icons.add),
       ),

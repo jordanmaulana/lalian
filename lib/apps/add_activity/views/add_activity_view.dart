@@ -11,6 +11,7 @@ class AddActivity extends StatelessWidget {
   Widget build(BuildContext context) {
     AddActivityController controller = Get.put(AddActivityController());
     return Scaffold(
+      appBar: const TransparentAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -21,7 +22,6 @@ class AddActivity extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const TransparentAppBar(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
                   child: Column(

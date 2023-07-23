@@ -4,13 +4,13 @@ import 'package:get/get.dart';
 
 import '../core/utils/colors.dart';
 
-class TransparentAppBar extends StatelessWidget {
+class TransparentAppBar extends StatelessWidget implements PreferredSizeWidget {
   const TransparentAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: VColor.header,
       elevation: 0.0,
       leading: IconButton(
         icon: const FaIcon(
@@ -22,4 +22,7 @@ class TransparentAppBar extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

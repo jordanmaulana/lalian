@@ -51,6 +51,7 @@ class VText extends StatelessWidget {
         fontWeight: fontWeight,
         decoration: decoration,
         fontStyle: fontStyle,
+        height: 1.2,
       ),
       overflow: overflow,
       textAlign: align,

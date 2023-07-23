@@ -5,4 +5,5 @@ class Routes {
 
   static const addMaster = '/addMaster';
   static const activityHistory = '/activityHistory';
+  static const addReminder = '/addReminder';
 }
